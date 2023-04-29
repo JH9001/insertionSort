@@ -11,10 +11,11 @@ func main() {
 
 	arr := []int{9, 4, 2, 7, 1}
 
-	for index := 0; index < len(arr); index++ {
-		for i := 1; i < len(arr); i++ {
-			if arr[i] < arr[i-1] {
-				arr[i-1], arr[i] = arr[i], arr[i-1]
+	for i := 1; i < len(arr); i++ {
+		for j := i - 1; arr[j] > arr[j+1] && j >= 0; {
+			arr[j], arr[j+1] = arr[j+1], arr[j]
+			if j > 0 {
+				j--
 			}
 		}
 	}
